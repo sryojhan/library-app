@@ -1,18 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library App</title>
+    <title>Project manager</title>
 
-
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+
+
+
+    <div class="page">
+
+
+        <table id="project-table">
+
+            <thead>
+
+                <tr class="table-headers"> <!-- headers -->
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Technology</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tr> <!-- headers -->
+
+                <td>TODO: poner bien las acciones</td>
+                <td>TODO: pausar, reanudar, detener y terminar un proyecto</td>
+                <td>TODO: Estilizar el botón de abajo</td>
+                <td>TODO: Cambiar el color de los status</td>
+                <td><i class="fa-solid fa-trash"></i></td>
+            </tr>
+
+
+        </table>
+
+
+        <div class="add-project">
+
+
+            <form id="create-project">
+
+
+
+                <input name="name" placeholder="Name" autocomplete="off">
+
+
+                <input name="desc" placeholder="Description" autocomplete="off">
+
+
+
+                <select name="tech">
+
+                    <option>Unity</option>
+                    <option>Unreal</option>
+                    <option>Web</option>
+                    <option>Node</option>
+                    <option>C++</option>
+                </select>
+
+
+                <select name="status">
+
+                    <option>Pending</option>
+                    <option>In progress</option>
+                    <option>Paused</option>
+                    <option>Complete</option>
+                </select>
+
+                <button type="submit">Submit</button>
+                </tr>
+
+            </form>
+        </div>
+
+
+    </div>
+
 
 
 
     <script src="script.js"></script>
 </body>
+
 </html>

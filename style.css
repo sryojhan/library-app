@@ -1,0 +1,96 @@
+body{
+
+
+    margin: 0;
+
+    background-color: #121212;
+    color: white;
+
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, p{
+
+    margin: 0px;
+    padding: 0px;
+
+    font-weight: 400;
+}
+
+th{
+
+    text-align: left;
+}
+
+
+.page{
+
+    width: 100%;
+    height: 100vh;
+
+    box-sizing: border-box;
+
+}
+
+label{
+
+    display: inline-block;
+}
+
+
+table{
+
+    width: 100%;
+    position: relative;
+
+}
+
+thead{
+
+    top: 0;
+    position: sticky;
+    background-color: #121212;
+}
+
+
+.add-project{
+
+    position: fixed;
+
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1eaedb;
+
+    padding: 20px 50px;
+
+    border-radius: 50px;
+}
+
+.add-project table{
+
+
+    border-collapse: separate;
+    border-spacing: 50px 10px;
+
+}
+
+input{
+
+    background-color: transparent;
+    border: 0;
+    color: white
+}
+
+input::placeholder{
+
+    color: white;
+}
+
+input:focus{
+
+
+    outline: 0;
+    border: 0
+    ;
+}
