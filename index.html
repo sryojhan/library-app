@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project manager</title>
+    <title>Project tracker</title>
 
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,11 +35,20 @@
 
             <tr> <!-- headers -->
 
-                <td>TODO: poner bien las acciones</td>
+                <td>TODO: confirmar la eliminacion de un proyecto</td>
                 <td>TODO: pausar, reanudar, detener y terminar un proyecto</td>
-                <td>TODO: Estilizar el botón de abajo</td>
+                <td>Completado: Estilizar el botón de abajo</td>
                 <td>TODO: Cambiar el color de los status</td>
-                <td><i class="fa-solid fa-trash"></i></td>
+                <td>
+                    <div class="action-icons">
+
+                        <i class="action play fa-solid fa-play"></i>
+                        <i class="action pause fa-solid fa-pause"></i>
+                        <i class="action stop fa-solid fa-stop"></i>
+                        <i class="action complete fa-solid fa-circle-check"></i>
+                        <i class="action delete fa-solid fa-trash"></i>
+                    </div>
+                </td>
             </tr>
 
 
@@ -49,37 +58,48 @@
         <div class="add-project">
 
 
+
+
             <form id="create-project">
 
+                <div class="add-project-buttons">
 
 
-                <input name="name" placeholder="Name" autocomplete="off">
+                    <input name="name" placeholder="Name" autocomplete="off">
 
 
-                <input name="desc" placeholder="Description" autocomplete="off">
+                    <input name="desc" placeholder="Description" autocomplete="off">
 
 
 
-                <select name="tech">
+                    <div class="custom-select">
 
-                    <option>Unity</option>
-                    <option>Unreal</option>
-                    <option>Web</option>
-                    <option>Node</option>
-                    <option>C++</option>
-                </select>
+                        <select name="tech">
+
+                            <option>Unity</option>
+                            <option>Unreal</option>
+                            <option>Web</option>
+                            <option>Node</option>
+                            <option>C++</option>
+                        </select>
+                    </div>
 
 
-                <select name="status">
+                    <div class="custom-select">
+                        <select name="status">
 
-                    <option>Pending</option>
-                    <option>In progress</option>
-                    <option>Paused</option>
-                    <option>Complete</option>
-                </select>
+                            <option>Pending</option>
+                            <option>In progress</option>
+                            <option>Paused</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
 
-                <button type="submit">Submit</button>
-                </tr>
+                    <button type="submit">Submit</button>
+                    </tr>
+
+                </div>
+
 
             </form>
         </div>

@@ -24,43 +24,60 @@ function AddProjectToLibrary(name, desc, technology, status){
 
     const tablerow = document.createElement('tr');
 
-    const createTableData = (content, cssClass) => {
+    const createTableData = (content, status) => {
         
         let element = document.createElement('td');
 
         element.innerText = content;
-        element.classList.add(cssClass);
+
+        if(status !== undefined)
+        {
+            element.classList.add('status');
+            element.classList.add(status);
+        }
         return element;
     };
 
-    tablerow.append(createTableData(name), createTableData(desc), createTableData(technology), createTableData(status, 'status'));
+    let statusClassName = status.toLowerCase().replace(' ', '-');
+
+    tablerow.append(createTableData(name), createTableData(desc), createTableData(technology), createTableData(status, statusClassName));
 
 
     let actionCell = document.createElement('td');
+    let actionIcon = document.createElement('div');
 
+    actionIcon.classList.add('action-icons')
 
-    function addActionButton(icon, action){
-
-
+    
+    function addActionButton(icon, color, action){
+        
+        
         let button = document.createElement('i');
-
+        
+        button.classList.add('action');
+        button.classList.add(color);
         button.classList.add('fa-solid');
         button.classList.add(icon);
-    
+        
         button.addEventListener('click', ()=>{
-    
+            
             action();
         });
-        actionCell.append(button);
-    
+        actionIcon.append(button);
+        
         return button;
     }
-
-    addActionButton('fa-trash', ()=> deleteProject(project.id));
-    addActionButton('fa-pause', () => completeProject(project.id));
-
+    
+    
+    addActionButton('fa-play', "play", () => ChangeProjectStatus(project.id, 'In Progress'));
+    addActionButton('fa-pause', "pause", () => ChangeProjectStatus(project.id, 'Paused') );
+    addActionButton('fa-stop', "stop", () => ChangeProjectStatus(project.id, 'Pending'));
+    addActionButton('fa-circle-check', "complete", () => ChangeProjectStatus(project.id, 'Completed'));
+    addActionButton('fa-trash', "delete",  ()=> deleteProject(project.id));
+    
+    actionCell.append(actionIcon);
+    
     tablerow.append(actionCell);
-
 
     projectTable.append(tablerow);
 
@@ -101,16 +118,22 @@ function deleteProject(id){
     allProjects.splice(allProjects.indexOf(elem), 1);
 }
 
-function completeProject(id){
-
+function ChangeProjectStatus(id, status){
+    
     const elem = findProject(id);
 
-    elem.status = 'Complete';
+    elem.status = status;
 
-    elem.element.querySelector('.status').innerText = 'Complete';
-}
+    let statusElement = elem.element.querySelector('.status');
 
-function pauseProject(id){
+    statusElement.classList.remove('in-progress');
+    statusElement.classList.remove('paused');
+    statusElement.classList.remove('completed');
 
 
+    let statusClassList = status.toLowerCase().replace(' ', '-');
+
+    statusElement.classList.add(statusClassList);
+
+    statusElement.innerText = status;
 }
